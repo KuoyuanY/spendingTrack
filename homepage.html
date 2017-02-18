@@ -39,7 +39,7 @@ body{
 	background-image: url("CapcoinBG1.png");
 	background-position: 0px 0px;
   animation-name: animatedBackground;
-	animation-duration: 40s;
+	animation-duration: 360s;
 }
 
 @keyframes animatedBackground{
@@ -58,6 +58,9 @@ body{
 <script>
 function check(){
   document.getElementById('f1').innerHTML = document.myform.name.value;
+}
+function check2(){
+  document.getElementById('f2').innerHTML = document.myform.name2.value;
 }
   var finalBalance;
   var response;
@@ -101,8 +104,10 @@ function check(){
       <article>
         <h2> Save per Day: </h2>
         <form action ="" method = "POST">
-          How Much do you want to Save?: <input type = "text" name = "textbox" id = "goal">
-          <input type = "submit" id = "btn" value = "Submit"/>
+          How Much do you want to Save?: <input type = "text" name = 'name2' value = "goal">
+          <input type = "submit" onclick = 'check2();return false' value = "Submit"/>
+          <h2> Save per Day: </h2>
+          <h2 id ='f2'></h2>
       </article>
     </aside>
     <aside class="bot-sidebar">
