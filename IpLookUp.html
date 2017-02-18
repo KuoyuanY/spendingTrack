@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Display IP Address</title>
+</head>
+
+<body>
+  <p id="test" ></p>
+
+  <script>
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', "https://ipinfo.io/json", true);
+  xhr.send();
+
+  xhr.addEventListener("readystatechange", processRequest, false);
+
+  xhr.onreadystatechange = processRequest;
+  var aS;
+  function processRequest(e){
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        var response = JSON.parse(xhr.responseText);
+        document.getElementById("test").innerHTML = response.city;
+
+    }
+  }
+  </script>
+</body>
+
+
+</html>
