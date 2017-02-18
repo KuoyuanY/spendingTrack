@@ -2,9 +2,14 @@
 h2{
    margin: -10px -50 px;
    text-align: center;
+   font-family: 'Open+Sans';
+   background-color: #7FFFD4;
 }
 hr{
    margin: 10px -50px;
+   font-family: 'Open+Sans';
+   color: white;
+   background-color: #7FFFD4;
 }
 div.outerbox{
    width: 1200px;
@@ -24,8 +29,9 @@ input[type=text],input[type=password]{
 
 input[type=button]{
    font-size: 14px;
+   font-family: 'Open+Sans';
    border: none;
-   color: white;
+   color: #7FFFD4;
    text-align: center;
    padding: 15px 32px;
    text-decoration: none;
@@ -34,4 +40,3 @@ input[type=button]{
    margin: 4px 2px;
    cursor: pointer;
 }
-
