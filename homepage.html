@@ -14,46 +14,48 @@
     src: url('https://fonts.googleapis.com/css?family=VT323's);
 }
 
-h2{
+h1{
   font-family: 'VT323',monospace;
   font-size: 1000;
   font-weight: 500;
   text-align:center;
 }
-h3{
-  font-family:'VT323',monospace;
-  align-text:right;
-}
 p{
   font-family:'VT323',monospace;
   align-text:right;
 }
-body{
+h2{
+  font-family: 'VT323', monospace;
+  align-text:right;
+}
+ul{
+  font-family:'VT323',monospace;
+}
+
+<!-- body{
   background-image: url("CapcoinBG1.png");
   background-repeat: no-repeat;
+} -->
+#animte-frames{
+	width: auto;
+	height: auto;
+	background-image: url("CapcoinBG1.png");
+	background-position: 0px 0px;
+  animation-name: animatedBackground
+	animation-duration: 40s;
 }
+
 @keyframes animatedBackground {
 	from { background-position: 0 0; }
 	to { background-position: 100% 0; }
 }
-#animate-area	{
-	width: 560px;
-	height: 400px;
-	background-image: url("CapcoinBG1.png");
-	background-position: 0px 0px;
-	background-repeat: repeat-x;
-
-	animation: animatedBackground 40s linear infinite;
-}
-</body>
 </style>
 </head>
 <body class="body">
     <header class="mainheader">
-      <img src=""> <!-needs to input location of file->
-
+      <img src="CapcoinLogo.png" style = "width:128px;height:128px;">
       <nav><ul>
-        <li><a href="siteUrl">Settings</li> <!-this creates a bullet list->
+        <li><a href="siteUrl">Settings</li>
       </ul></nav>
     </header>
 
@@ -61,29 +63,27 @@ body{
       <div class="content">
         <article class="topcontent">
           <header>
-            <h2><a href="link" title="Balance">Balance<a/></h2>
+            <h1><a href="link" align="top" title="Balance">Balance<a/></h1>
           </header>
         </article>
       </div>
     </div>
-    <aside class="top sidebar">
+    <aside class="top-sidebar">
       <article>
-        <h3> Save per Day</h3>
-        <p> Some number</p>
+        <h2> Salary: </h2>
+        <p>  </p>
       </article>
     </aside>
-    <aside class="mid sidebar">
+    <aside class="mid-sidebar">
       <article>
-        <h3> mid sidebar</h3>
-        <p> words... blah blah blah </p>
+        <h2> Save per Day: </h2>
       </article>
     </aside>
-    <aside class="bot sidebar">
+    <aside class="bot-sidebar">
       <article>
-        <h3> bot sidebar</h3>
-        <p> words... blah blah blah </p>
+        <h2> Habits: </h2>
       </article>
     </aside>
-
+<img src = "loadingStructure.png" alt="Progress!">
 </body>
 </html>
