@@ -16,9 +16,11 @@ div.outerbox{
    height:800px;
    font-family: 'Open+Sans';
    background-color: #7FFFD4;
+   color:white;
 }
 div.mainbox{
    position: relative;
+   background-color: #7FFFD4;
    width: 300px;
 }
 input[type=text],input[type=password]{
