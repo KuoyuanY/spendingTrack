@@ -1,9 +1,10 @@
 function validate(){
    var username = document.getElementById("username").value;
    var password = document.getElementById("password").value;
-   if(username == "in" && password == "in"){
+   if (username == "username" && password == "password"){
       window.location = "homepage.html";
-   } else {
+   }
+   else {
       alert("Incorrect Username or Password!");
    }
 }
