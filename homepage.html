@@ -5,55 +5,129 @@
   <title>Capcoin</title>
   <meta charset="utf-8" />
 
-  <link rel="stylesheet" href="style.css" type="text/css" />
+  <style type="text/css" media="screen" />
   <meta name="viewport" content="with=device-width, initial-scale=1.0">
+  @import url('https://fonts.googleapis.com/css?family=VT323');
 
+@font-face {
+   font-family: 'VT323', monospace;
+    src: url('https://fonts.googleapis.com/css?family=VT323's);
+}
+
+h1{
+  font-family: 'VT323',monospace;
+  font-size: 1000;
+  font-weight: 500;
+  text-align:center;
+  text-transform: uppercase;
+}
+h3{
+  font-family: 'VT323',monospace;
+  align-text:right;
+}
+p{
+  font-family:'VT323',monospace;
+  align-text:right;
+}
+h2{
+  font-family: 'VT323', monospace;
+  align-text:right;
+}
+ul{
+  font-family:'VT323',monospace;
+}
+form{
+  font-family: 'VT323', monospace;
+}
+body{
+	width: auto;
+	height: auto;
+	background-image: url("CapcoinBG1.png");
+	background-position: 0px 0px;
+  animation-name: animatedBackground;
+	animation-duration: 360s;
+}
+
+@keyframes animatedBackground{
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+}
+.balance{
+  margin-down: px;
+}
+</style>
 </head>
 <body class="body">
     <header class="mainheader">
-      <img src=""> <!-needs to input location of file->
-
+      <img src="CapcoinLogo.png" style = "width:128px;height:128px;">
+      <h3 class = "greet" id = "Greeting Message"> Hello! </h3>
       <nav><ul>
-        <li><a href="siteUrl">name</li> <!-this creates a bullet list->
-          <li><a href="siteUrl">name</li>
-            <li><a href="siteUrl">name</li>
-              <li><a href="siteUrl">namemmmmm</li> <!-can have as many links as we want->
+        <li><a href="siteUrl">Settings</li>
       </ul></nav>
     </header>
+<script>
+function check(){
+  document.getElementById('f1').innerHTML = document.myform.name.value;
+}
+function check2(){
+  document.getElementById('f2').innerHTML = document.myform.name2.value;
+}
+  var finalBalance;
+  var response;
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', "http://api.reimaginebanking.com/enterprise/accounts/56c66be6a73e492741507deb?key=5398eb0c1585b1634aee49389de825a1", true);
+  xhr.send();
 
+  xhr.addEventListener("readystatechange", processRequest, false);
+
+  xhr.onreadystatechange = processRequest;
+
+  function processRequest(e){
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        var response = JSON.parse(xhr.responseText);
+        var balance = Number(response.balance).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("balanceNumber").innerHTML = balance + "$";
+
+    }
+  }
+</script>
     <div class="mainContent">
       <div class="content">
         <article class="topcontent">
           <header>
-            <h2><a href="link" title="Title Name">Title Name<a/></h2>
+            <h1 style ="margin-down:70px;"><a href="link" title="Balance">Balance<a/></h1>
+          <br><h1 id = "balanceNumber"><a href="link" align="top" title="Balance"><a/></h1>
           </header>
-          <content>
-            <p>
-              words....blah blah blah
-            </p>
-          </content>
         </article>
       </div>
     </div>
-
-    <aside class="top sidebar">
+    <aside class="top-sidebar">
       <article>
-        <h2> top sidebar</h2>
-        <p> words...  blah blah blah</p>
+        <form name = 'myform'>
+          Enter Your Weekly Salary: <input type = "text" name ='name' value = "">
+          <input type = 'submit' onclick = 'check();return false' value = "Submit">
+          <h2> Salary: </h2>
+        <h2 id='f1'> </h2>
       </article>
     </aside>
-    <aside class="mid sidebar">
+    <aside class="mid-sidebar">
       <article>
-        <h2> top sidebar</h2>
-        <p> words... blah blah blah </p>
+        <h2> Save per Day: </h2>
+        <form name = 'myform2'>
+          <font face = 'VT323,monospace' size = "3">
+          How Much do you want to Save?: <input type = "text" name = 'name2' value = "">
+          <input type = "submit" onclick = 'check2();return false' value = "Submit"/>
+        </font>
+          <h2> Save per Day: </h2>
+          <h2 id ='f2'></h2>
       </article>
     </aside>
-    <aside class="bot  sidebar">
+    <aside class="bot-sidebar">
       <article>
-        <h2> top sidebar</h2>
-        <p> words... blah blah blah </p>
+        <h2> Habits: </h2>
       </article>
     </aside>
-
+    <div style = "text-align:center;">
+<img src = "loadingStructure.png" alt="Progress!" style = 'align-text:right;'></div>
 </body>
 </html>
