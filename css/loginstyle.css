@@ -10,10 +10,11 @@ div.outerbox{
    width: 1200px;
    height:800px;
    font-family: 'Open+Sans';
+   background-color: #7FFFD4;
 }
 div.mainbox{
+   position: relative;
    width: 300px;
-   float: left;
 }
 input[type=text],input[type=password]{
    width: 100%;
