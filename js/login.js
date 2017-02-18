@@ -3,8 +3,10 @@ function validate(){
    var password = document.getElementById("password").value;
    if (username == "username" && password == "password"){
       window.location = "homepage.html";
+      return false;
    }
    else {
       alert("Incorrect Username or Password!");
+      return false;
    }
 }
