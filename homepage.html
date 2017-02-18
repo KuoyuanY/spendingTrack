@@ -59,13 +59,31 @@ body{
 function check(){
   document.getElementById('f1').innerHTML = document.myform.name.value;
 }
+  var finalBalance;
+  var response;
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', "http://api.reimaginebanking.com/enterprise/accounts/56c66be6a73e492741507deb?key=5398eb0c1585b1634aee49389de825a1", true);
+  xhr.send();
+
+  xhr.addEventListener("readystatechange", processRequest, false);
+
+  xhr.onreadystatechange = processRequest;
+
+  function processRequest(e){
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        var response = JSON.parse(xhr.responseText);
+        var balance = Number(response.balance).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("balanceNumber").innerHTML = balance + "$";
+
+    }
+  }
 </script>
     <div class="mainContent">
       <div class="content">
         <article class="topcontent">
           <header>
             <h1><a href="link" align="top" title="Balance">Balance<a/></h1>
-          <br><h1><a href="link" align="top" title="Balance">Balance<a/></h1>    
+          <br><h1 id = "balanceNumber"><a href="link" align="top" title="Balance">Balance<a/></h1>
           </header>
         </article>
       </div>
