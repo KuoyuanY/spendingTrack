@@ -32,7 +32,9 @@ h2{
 ul{
   font-family:'VT323',monospace;
 }
-
+form{
+  font-family: 'VT323', monospace;
+}
 body{
 	width: auto;
 	height: auto;
@@ -45,6 +47,9 @@ body{
 @keyframes animatedBackground{
 	from { background-position: 0 0; }
 	to { background-position: 100% 0; }
+}
+.balance{
+  margin-down: px;
 }
 </style>
 </head>
@@ -85,7 +90,7 @@ function check2(){
       <div class="content">
         <article class="topcontent">
           <header>
-            <h1><a href="link" align="top" title="Balance">Balance<a/></h1>
+            <h1 style ="margin-down:70px;"><a href="link" title="Balance">Balance<a/></h1>
           <br><h1 id = "balanceNumber"><a href="link" align="top" title="Balance"><a/></h1>
           </header>
         </article>
@@ -94,7 +99,7 @@ function check2(){
     <aside class="top-sidebar">
       <article>
         <form name = 'myform'>
-          Enter Your Weekly Salary: <input type = "text" name ='name' value = "weeklySalary">
+          Enter Your Weekly Salary: <input type = "text" name ='name' value = "">
           <input type = 'submit' onclick = 'check();return false' value = "Submit">
           <h2> Salary: </h2>
         <h2 id='f1'> </h2>
@@ -103,8 +108,8 @@ function check2(){
     <aside class="mid-sidebar">
       <article>
         <h2> Save per Day: </h2>
-        <form action ="" method = "POST">
-          How Much do you want to Save?: <input type = "text" name = 'name2' value = "goal">
+        <form name = 'myform2'>
+          How Much do you want to Save?: <input type = "text" name = 'name2' value = "">
           <input type = "submit" onclick = 'check2();return false' value = "Submit"/>
           <h2> Save per Day: </h2>
           <h2 id ='f2'></h2>
