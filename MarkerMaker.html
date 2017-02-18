@@ -9,6 +9,7 @@
        * element that contains the map. */
       #map {
         height: 100%;
+        width: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -35,10 +36,16 @@
           map: map,
           title: 'Hello World!'
         });
+        var marker1 = new google.maps.Marker({
+          position: {lat: -25.263, lng: 131.144},
+          map: map,
+          title: 'Hello'
+        });
       }
+
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEgQeahrCY6f1LvIA0WkPJafUTCBLICr4&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEflnYiw5g2QotZ-ctNmx-hlxrm-CNp4I&callback=initMap">
     </script>
   </body>
 </html>
