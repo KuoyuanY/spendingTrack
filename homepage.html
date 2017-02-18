@@ -5,19 +5,54 @@
   <title>Capcoin</title>
   <meta charset="utf-8" />
 
-  <link rel="stylesheet" href="style.css" type="text/css" />
+  <style type="text/css" media="screen" />
   <meta name="viewport" content="with=device-width, initial-scale=1.0">
+  @import url('https://fonts.googleapis.com/css?family=VT323');
 
+@font-face {
+   font-family: 'VT323', monospace;
+    src: url('https://fonts.googleapis.com/css?family=VT323's);
+}
+
+h2{
+  font-family: 'VT323',monospace;
+  font-weight: 200;
+  text-align:center;
+}
+h3{
+  font-family:'VT323',monospace;
+  align-text:right;
+}
+p{
+  font-family:'VT323',monospace;
+  align-text:right;
+}
+body{
+  background-image: url("CapcoinBG1.png");
+  background-repeat: no-repeat;
+}
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+}
+#animate-area	{
+	width: 560px;
+	height: 400px;
+	background-image: url(bg-clouds.png);
+	background-position: 0px 0px;
+	background-repeat: repeat-x;
+
+	animation: animatedBackground 10s linear infinite;
+}
+</body>
+</style>
 </head>
 <body class="body">
     <header class="mainheader">
       <img src=""> <!-needs to input location of file->
 
       <nav><ul>
-        <li><a href="siteUrl">name</li> <!-this creates a bullet list->
-          <li><a href="siteUrl">name</li>
-            <li><a href="siteUrl">name</li>
-              <li><a href="siteUrl">namemmmmm</li> <!-can have as many links as we want->
+        <li><a href="siteUrl">Settings</li> <!-this creates a bullet list->
       </ul></nav>
     </header>
 
@@ -25,32 +60,26 @@
       <div class="content">
         <article class="topcontent">
           <header>
-            <h2><a href="link" title="Title Name">Title Name<a/></h2>
+            <h2><a href="link" title="Balance">Balance<a/></h2>
           </header>
-          <content>
-            <p>
-              words....blah blah blah
-            </p>
-          </content>
         </article>
       </div>
     </div>
-
     <aside class="top sidebar">
       <article>
-        <h2> top sidebar</h2>
-        <p> words...  blah blah blah</p>
+        <h3> Save per Day</h3>
+        <p> Some number</p>
       </article>
     </aside>
     <aside class="mid sidebar">
       <article>
-        <h2> top sidebar</h2>
+        <h3> mid sidebar</h3>
         <p> words... blah blah blah </p>
       </article>
     </aside>
-    <aside class="bot  sidebar">
+    <aside class="bot sidebar">
       <article>
-        <h2> top sidebar</h2>
+        <h3> bot sidebar</h3>
         <p> words... blah blah blah </p>
       </article>
     </aside>
