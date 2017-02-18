@@ -2,9 +2,11 @@
 h2{
    margin: -10px -50 px;
    text-align: center;
+   background-color: #7FFFD4;
 }
 hr{
    margin: 10px -50px;
+   background-color: #7FFFD4;
 }
 div.outerbox{
    width: 1200px;
@@ -15,6 +17,7 @@ div.outerbox{
 div.mainbox{
    position: relative;
    width: 300px;
+   background-color: #7FFFD4;
 }
 input[type=text],input[type=password]{
    width: 100%;
@@ -23,5 +26,9 @@ input[type=text],input[type=password]{
 }
 input[type=button]{
    font-size: 14px;
-   width:100%
+   border: none;
+   text-align: center;
+   padding: 15px 32px;
+   display: inline-block;
+   font-size: 16px;
 }
