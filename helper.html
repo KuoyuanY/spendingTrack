@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<style>
+      #map {
+        height: 780px;
+        width: 1380px;
+      }
+</style>
+</head>
+<body>
+<div id="navbar"><span>Spending Concentration Map</span></div>
+<div id="wrapper">
+<div id="map"></div>
+<div id="info"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 9
+        });
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', "http://api.reimaginebanking.com/merchants/58a8df2e1756fc834d9053cb?key=5398eb0c1585b1634aee49389de825a1", true);
+        xhr.send();
+        xhr.addEventListener("readystatechange", processRequest, false);
+        xhr.onreadystatechange = processRequest;
+
+        function processRequest(e){
+          if (xhr.readyState == 4 && xhr.status == 200) {
+              var response = JSON.parse(xhr.responseText);
+              var xhr1 = new XMLHttpRequest();
+              for(var i = 0; i < response.length; i++){
+                var url=response[i].merchant_id.toString();
+              xhr1.open('GET', "http://api.reimaginebanking.com/merchants/" +url+"/accounts/58a8d0bc1756fc834d9053b9/purchases?key=5398eb0c1585b1634aee49389de825a1", true);
+                xhr1.send();
+                xhr1.addEventListener("readystatechange", processRequest1, false);
+                xhr1.onreadystatechange = processRequest1;
+                function processRequest1(e){
+                  if(xhr1.readyState == 4 && xhr1.status == 200){
+                    var response1 = JSON.parse(xhr1.responseText);
+                    if(response1.length>2){
+                      var coordinates = new google.maps.Marker({
+                        position: {lat:response.geocode.lat, lng: response.geocode.lng},
+                        map: map
+                      })
+                    } else if(response1.purchases.length==1){
+                      var coordinates = new google.maps.Marker({
+                        position: {lat:response.geocode.lat, lng: response.geocode.lng},
+                        map: map
+                        })
+                    } else if(response1.purchases.length==2){
+                      var coordinates = new google.maps.Marker({
+                        position: {lat:response.geocode.lat, lng: response.geocode.lng},
+                        map: map
+                      })
+                    } else {
+                      var coordinates = new google.maps.Marker({
+                        position: {lat:response.geocode.lat, lng: response.geocode.lng},
+                        map: map
+                      })
+                    }
+
+                    }
+                  }
+                }
+              }
+          }
+        }
+
+
+
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEgQeahrCY6f1LvIA0WkPJafUTCBLICr4&callback=initMap"
+    async defer></script>
+</div>
+</body>
+</html>
