@@ -5,60 +5,67 @@
   <title>Capcoin</title>
   <meta charset="utf-8" />
 
-  <style type="text/css" media="screen" />
+  <style type="text/css" rel="stylesheet" href= "Resources/style.css" />
   <meta name="viewport" content="with=device-width, initial-scale=1.0">
   @import url('https://fonts.googleapis.com/css?family=VT323');
 
-@font-face {
+  @font-face {
    font-family: 'VT323', monospace;
     src: url('https://fonts.googleapis.com/css?family=VT323's);
-}
+  }
 
-h1{
+  h1{
   font-family: 'VT323',monospace;
   font-size: 1000;
   font-weight: 500;
   text-align:center;
   text-transform: uppercase;
-}
-p{
+  }
+  h3{
+  font-family: 'VT323',monospace;
+  align-text:right;
+  }
+  p{
   font-family:'VT323',monospace;
   align-text:right;
-}
-h2{
+  }
+  h2{
   font-family: 'VT323', monospace;
   align-text:right;
-}
-ul{
+  }
+  ul{
   font-family:'VT323',monospace;
-}
-form{
+  }
+  form{
   font-family: 'VT323', monospace;
-}
-body{
-	width: auto;
-	height: auto;
-	background-image: url("CapcoinBG1.png");
-	background-position: 0px 0px;
+  }
+  body{
+  width: auto;
+  height: auto;
+  background-image: url("CapcoinBG1.png");
+  background-position: 0px 0px;
   animation-name: animatedBackground;
-	animation-duration: 360s;
-}
+  animation-duration: 20s;
+  animation-iteration-count:100;
+  }
 
-@keyframes animatedBackground{
-	from { background-position: 0 0; }
-	to { background-position: 100% 0; }
-}
-.balance{
+  @keyframes animatedBackground{
+  from { background-position: 0 0; }
+  to { background-position: 100% 0; }
+  }
+  .balance{
   margin-down: px;
-}
+  }
+
 </style>
 </head>
 <body class="body">
     <header class="mainheader">
       <img src="CapcoinLogo.png" style = "width:128px;height:128px;">
+      <h3 class = "greet" id = "Greeting Message"> Hello! </h3>
       <nav><ul>
         <li><a href="siteUrl">Settings</li>
-          <li><a href="googlemap.html">Spending Concentration Map</a></li>
+          <li><a href="visualmap.html">Purchase Concentration Map</li>
       </ul></nav>
     </header>
 <script>
@@ -71,7 +78,7 @@ function check2(){
   var finalBalance;
   var response;
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', "http://api.reimaginebanking.com/enterprise/accounts/56c66be6a73e492741507deb?key=5398eb0c1585b1634aee49389de825a1", true);
+  xhr.open('GET', "http://api.reimaginebanking.com/customers/56c66be6a73e492741507deb%3F/accounts?key=5398eb0c1585b1634aee49389de825a1", true);
   xhr.send();
 
   xhr.addEventListener("readystatechange", processRequest, false);
@@ -85,17 +92,19 @@ function check2(){
         document.getElementById("balanceNumber").innerHTML = balance + "$";
 
     }
+    var weeklySpending;
+    var response;
+    var rhr = new XMLHttpRequest();
+    rhr.open('GET', )
   }
 </script>
     <div class="mainContent">
       <div class="content">
         <article class="topcontent">
-          
           <header>
             <h1 style ="margin-down:70px;"><a href="link" title="Balance">Balance<a/></h1>
           <br><h1 id = "balanceNumber"><a href="link" align="top" title="Balance"><a/></h1>
           </header>
-
         </article>
       </div>
     </div>
@@ -112,9 +121,11 @@ function check2(){
       <article>
         <h2> Save per Day: </h2>
         <form name = 'myform2'>
-          How Much do you want to Save?: <input type = "text" name = 'name2' value = "">
+          <font face = 'VT323,monospace' size = "3">
+          How Much Do You Want To Save in a Month?: <input type = "text" name = 'name2' value = "">
           <input type = "submit" onclick = 'check2();return false' value = "Submit"/>
-          <h2> Save per Day: </h2>
+        </font>
+          <h2> $ You Must Save Per Day: </h2>
           <h2 id ='f2'></h2>
       </article>
     </aside>
@@ -123,6 +134,7 @@ function check2(){
         <h2> Habits: </h2>
       </article>
     </aside>
-<img src = "loadingStructure.png" alt="Progress!">
+    <div style = "text-align:center;">
+<img src = "Resources/loadingStructure3.png" alt="Progress!" style = 'align-text:right;'></div>
 </body>
 </html>
