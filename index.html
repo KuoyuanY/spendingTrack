@@ -1,59 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <title>Capcoin</title>
-  <meta charset="utf-8" />
-
-  <link rel="stylesheet" href="css/style.css" type="text/css" />
-  <meta name="viewport" content="with=device-width, initial-scale=1.0">
-
+<div class="card-panel teal lighten-2"></div>
+<title>User Login</title>
+<!-- CSS file -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script data-main="lib/capital_one" src="lib/require-jquery.js"></script>
+<link rel="stylesheet" href="css/loginstyle.css"/>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+<!-- JS file -->
+<script src="js/login.js"></script>
+<script src="js/XMLHttpRequest.js"></script>
+<script>
+getJSON('http://api.reimaginebanking.com/accounts/58a8d0ee1756fc834d9053ba?key=5398eb0c1585b1634aee49389de825a1', function(account) {
+console.log(account._id);
+}, function(status) {
+console.log('Something went wrong.');
+});
+</script>
 </head>
-<body class="body">
-    <header class="mainheader">
-      <img src=""> <!-needs to input location of file->
-
-      <nav><ul>
-        <li><a href="siteUrl">name</li> <!-this creates a bullet list->
-          <li><a href="siteUrl">name</li>
-            <li><a href="siteUrl">name</li>
-              <li><a href="siteUrl">namemmmmm</li> <!-can have as many links as we want->
-      </ul></nav>
-    </header>
-
-    <div class="mainContent">
-      <div class="content">
-        <article class="topcontent">
-          <header>
-            <h2><a href="link" title="Title Name">Title Name<a/></h2>
-          </header>
-          <content>
-            <p>
-              words....blah blah blah.....
-            </p>
-          </content>
-        </article>
+   <body>
+      <div class = "outerbox">
+         <div class = "mainbox">
+            <h2 font-family: 'Roboto', sans-serif;> User Login </h2>
+            <form id="form_id" method="post" name="lform">
+               <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="1">account_box</div>
+               <label>Username:</label>
+               <input type="text" name="username" id="username"/>
+               <label>Password:</label>
+               <input type="text" name="password" id="password"/>
+               <div class="wrapper">
+                  <a class="waves-effect waves-light btn" onclick="validate()">Login</a>
+               </div>
+            </form>
+         </div>
       </div>
-    </div>
-
-    <aside class="top sidebar">
-      <article>
-        <h2> top sidebar</h2>
-        <p> words...  blah blah blah</p>
-      </article>
-    </aside>
-    <aside class="mid sidebar">
-      <article>
-        <h2> top sidebar</h2>
-        <p> words... blah blah blah </p>
-      </article>
-    </aside>
-    <aside class="bot  sidebar">
-      <article>
-        <h2> top sidebar</h2>
-        <p> words... blah blah blah </p>
-      </article>
-    </aside>
-
-</body>
+   </body>
 </html>

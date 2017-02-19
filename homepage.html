@@ -5,7 +5,7 @@
   <title>Capcoin</title>
   <meta charset="utf-8" />
 
-  <style type="text/css" rel="stylesheet" href= "Resources/style.css" />
+  <style type="text/css" rel="stylesheet" href= "Resources/style.css" >
   <meta name="viewport" content="with=device-width, initial-scale=1.0">
   @import url('https://fonts.googleapis.com/css?family=VT323');
 
@@ -40,8 +40,8 @@
   font-family: 'VT323', monospace;
   }
   body{
-  width: auto;
-  height: auto;
+  width:auto;
+  height:auto;
   background-image: url("Resources/Background/CapcoinBG1.png");
   background-position: 0px 0px;
   animation-name: animatedBackground;
@@ -57,6 +57,7 @@
   margin-down: px;
   }
 
+
 </style>
 </head>
 <body class="body">
@@ -69,11 +70,34 @@
     </header>
 <script>
 function check(){
-  document.getElementById('f1').innerHTML = document.myform.name.value;
+  document.getElementById('f1').innerHTML ="$" + document.myform.name.value;
+}
+function computePerDay(){
+  var salary = document.getElementId('salary').value;
+  var deficit = total - salary;
+  var goal = document.getElementID('goal').value;
+  var perDay = goal/30 - deficit;
+  perDay = perDay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  document.getElementById('f2').innerHTML = perDay;
 }
 function check2(){
-  document.getElementById('f2').innerHTML = document.myform.name2.value;
+  var salary = document.myform.name.value
+  var goal = document.myform.name2.value;
+  var total2 = document.getElementById("f3").innerHTML;
+  var deficit = salary-223.96;
+  var perDay = ((goal-deficit)/30).toFixed(2);
+  perDay = (perDay.toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  document.getElementById('f2').innerHTML = perDay;
 }
+// function check2(){
+//   var salary = document.myform.name.value
+//   var goal = document.myform.name2.value;
+//   var deficit = total - salary;
+//   var perDay = goal/30 - deficit;
+//   perDay = perDay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+//   document.getElementById('f2').innerHTML = perDay;
+// }
+
 //   var balance;
 //   var response;
 //   var xhr = new XMLHttpRequest();
@@ -112,6 +136,11 @@ function check2(){
 //http://api.reimaginebanking.com/accounts/58a8d0bc1756fc834d9053b9/purchases?key=5398eb0c1585b1634aee49389de825a1
  getJSON('http://api.reimaginebanking.com/accounts/58a8d0bc1756fc834d9053b9/purchases?key=5398eb0c1585b1634aee49389de825a1', function(purchase) {
    console.log(purchase)
+   var total=0;
+   for(var i= 0;i < purchase.length; i++){
+     total += purchase[i].amount;
+   }
+   document.getElementById("f3").innerHTML = "Weekly Expenditure: $" + total ;
  }, function(status) {
  	console.log('Something went wrong.');
  });
@@ -131,7 +160,7 @@ function check2(){
     <aside class="top-sidebar">
       <article>
         <form name = 'myform'>
-          Enter Your Weekly Salary: <input type = "text" name ='name' value = "">
+          Enter Your Weekly Salary: <input id="salary" type = "number"  name ='name' value = "">
           <input type = 'submit' onclick = 'check();return false' value = "Submit">
           <h2> Salary: </h2>
         <h2 id='f1'> </h2>
@@ -141,11 +170,12 @@ function check2(){
       <article>
         <form name = 'myform2'>
           <font face = 'VT323,monospace' size = "3">
-          How Much Do You Want To Save in a Month: <input type = "text" name = 'name2' value = "">
+          How Much Do You Want To Save in a Month: <input type = "number" id="goal" name = 'name2' value = "">
           <input type = "submit" onclick = 'check2();return false' value = "Submit"/>
         </font>
           <h2> $ You Must Save Per Day: </h2>
           <h2 id ='f2'></h2>
+          <br>
           <h2 id ='f3'></h2>
       </article>
     </aside>
@@ -155,6 +185,7 @@ function check2(){
       </article>
     </aside>
     <div style = "text-align:center;">
-<img src = "Resources/LoadingBar/loadingStructure3.png" alt="Progress!" style = 'align-text:right;'></div>
+<img src = "Resources/LoadingBar/loadingStructure8.png" alt="Progress!" style = 'align-text:right;'></div>
+
 </body>
 </html>
