@@ -57,6 +57,7 @@
   margin-down: px;
   }
 
+
 </style>
 </head>
 <body class="body">
@@ -69,7 +70,7 @@
     </header>
 <script>
 function check(){
-  document.getElementById('f1').innerHTML = document.myform.name.value;
+  document.getElementById('f1').innerHTML ="$" + document.myform.name.value;
 }
 function computePerDay(){
   var salary = document.getElementId('salary').value;
@@ -139,7 +140,7 @@ function check2(){
    for(var i= 0;i < purchase.length; i++){
      total += purchase[i].amount;
    }
-   document.getElementById("f3").innerHTML = Number(total);
+   document.getElementById("f3").innerHTML = "Weekly Expenditure: $" + total ;
  }, function(status) {
  	console.log('Something went wrong.');
  });
@@ -185,5 +186,6 @@ function check2(){
     </aside>
     <div style = "text-align:center;">
 <img src = "Resources/LoadingBar/loadingStructure3.png" alt="Progress!" style = 'align-text:right;'></div>
+
 </body>
 </html>
