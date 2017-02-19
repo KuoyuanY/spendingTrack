@@ -42,7 +42,7 @@
   body{
   width: auto;
   height: auto;
-  background-image: url("CapcoinBG1.png");
+  background-image: url("Resources/Background/CapcoinBG1.png");
   background-position: 0px 0px;
   animation-name: animatedBackground;
   animation-duration: 20s;
@@ -61,7 +61,7 @@
 </head>
 <body class="body">
     <header class="mainheader">
-      <img src="CapcoinLogo.png" style = "width:128px;height:128px;">
+      <img src="Resources/CapcoinLogo.png" style = "width:128px;height:128px;">
       <h3 class = "greet" id = "Greeting Message"> Hello! </h3>
       <nav><ul>
         <li><a href="siteUrl">Settings</li>
@@ -74,28 +74,40 @@ function check(){
 function check2(){
   document.getElementById('f2').innerHTML = document.myform.name2.value;
 }
-  var finalBalance;
-  var response;
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', "http://api.reimaginebanking.com/customers/56c66be6a73e492741507deb%3F/accounts?key=5398eb0c1585b1634aee49389de825a1", true);
-  xhr.send();
-
-  xhr.addEventListener("readystatechange", processRequest, false);
-
-  xhr.onreadystatechange = processRequest;
-
-  function processRequest(e){
-    if (xhr.readyState == 4 && xhr.status == 200) {
-        var response = JSON.parse(xhr.responseText);
-        var balance = Number(response.balance).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        document.getElementById("balanceNumber").innerHTML = balance + "$";
-
-    }
-
-  }
+//   var balance;
+//   var response;
+//   var xhr = new XMLHttpRequest();
+//   xhr.open('GET', "http://api.reimaginebanking.com/accounts/58a8d0ee1756fc834d9053ba?key=5398eb0c1585b1634aee49389de825a1", true);
+//   xhr.send();
+//
+//   xhr.addEventListener("readystatechange", processRequest, false);
+//
+//   xhr.onreadystatechange = processRequest;
+//
+//   function processRequest(e){
+//     if (xhr.readyState == 4 && xhr.status == 200) {
+//         response = JSON.parse(xhr.responseText);
+//         balance = Number(response.balance).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+//         document.getElementById("balanceNumber").innerHTML = balance + "$";
+//
+//     }
+// document.getElementById("Greeting Message").innerHTML = balance;
+//   }
+//
+//
   document.getElementByID("f3").innerHTML = "3";
-</script>
+ </script>
+ <script type="text/javascript" src="js/XMLHttpRequest.js"> </script>
 
+ <script>
+ getJSON('http://api.reimaginebanking.com/accounts/58a8d0ee1756fc834d9053ba?key=5398eb0c1585b1634aee49389de825a1', function(data) {
+ 	rewards = data.rewards;
+ }, function(status) {
+ 	alert('Something went wrong.');
+ });
+ console.log('Your public IP address is: ' + data.rewards);
+
+ </script>
     <div class="mainContent">
       <div class="content">
         <article class="topcontent">
@@ -133,6 +145,6 @@ function check2(){
       </article>
     </aside>
     <div style = "text-align:center;">
-<img src = "Resources/loadingStructure3.png" alt="Progress!" style = 'align-text:right;'></div>
+<img src = "Resources/LoadingBar/loadingStructure3.png" alt="Progress!" style = 'align-text:right;'></div>
 </body>
 </html>
