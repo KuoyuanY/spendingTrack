@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=VT323');
+
+@font-face {
+ font-family: 'VT323', monospace;
+  src: url('https://fonts.googleapis.com/css?family=VT323's);
+}
+
+h1{
+font-family: 'VT323',monospace;
+font-size: 1000;
+font-weight: 500;
+text-align:center;
+text-transform: uppercase;
+}
+h3{
+font-family: 'VT323',monospace;
+align-text:right;
+}
+p{
+font-family:'VT323',monospace;
+align-text:right;
+}
+h2{
+font-family: 'VT323', monospace;
+align-text:right;
+}
+ul{
+font-family:'VT323',monospace;
+}
+form{
+font-family: 'VT323', monospace;
+}
+body{
+width: auto;
+height: auto;
+background-image: url("CapcoinBG1.png");
+background-position: 0px 0px;
+animation-name: animatedBackground;
+animation-duration: 20s;
+animation-iteration-count:100;
+}
+
+@keyframes animatedBackground{
+from { background-position: 0 0; }
+to { background-position: 100% 0; }
+}
+.balance{
+margin-down: px;
+}
