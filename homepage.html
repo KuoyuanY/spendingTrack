@@ -74,13 +74,50 @@ function check(){
 function check2(){
   document.getElementById('f2').innerHTML = document.myform.name2.value;
 }
-
-  document.getElementByID("f3").innerHTML = "3";
+//   var balance;
+//   var response;
+//   var xhr = new XMLHttpRequest();
+//   xhr.open('GET', "http://api.reimaginebanking.com/accounts/58a8d0ee1756fc834d9053ba?key=5398eb0c1585b1634aee49389de825a1", true);
+//   xhr.send();
+//
+//   xhr.addEventListener("readystatechange", processRequest, false);
+//
+//   xhr.onreadystatechange = processRequest;
+//
+//   function processRequest(e){
+//     if (xhr.readyState == 4 && xhr.status == 200) {
+//         response = JSON.parse(xhr.responseText);
+//         balance = Number(response.balance).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+//         document.getElementById("balanceNumber").innerHTML = balance + "$";
+//
+//     }
+// document.getElementById("Greeting Message").innerHTML = balance;
+//   }
+//
+//
+//  document.getElementByID("f3").innerHTML = "3";
  </script>
  <script type="text/javascript" src="js/XMLHttpRequest.js"> </script>
 
-<script>
-</script>
+ <script>
+ //For account info #Balance #Rewards
+ getJSON('http://api.reimaginebanking.com/accounts/58a8d0ee1756fc834d9053ba?key=5398eb0c1585b1634aee49389de825a1', function(account) {
+ 	document.getElementById("balanceNumber").innerHTML = (account.balance).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "$";
+ }, function(status) {
+ 	console.log('Something went wrong.');
+ });
+
+//For purchase info
+//
+//http://api.reimaginebanking.com/accounts/58a8d0bc1756fc834d9053b9/purchases?key=5398eb0c1585b1634aee49389de825a1
+ getJSON('http://api.reimaginebanking.com/merchants/58a8f01a1756fc834d905421/accounts/58a8d0bc1756fc834d9053b9/purchases?key=5398eb0c1585b1634aee49389de825a1', function(purchase) {
+   console.log(purchase)
+ }, function(status) {
+ 	console.log('Something went wrong.');
+ });
+
+
+ </script>
     <div class="mainContent">
       <div class="content">
         <article class="topcontent">
@@ -121,25 +158,3 @@ function check2(){
 <img src = "Resources/LoadingBar/loadingStructure3.png" alt="Progress!" style = 'align-text:right;'></div>
 </body>
 </html>
-
-<!-- //   var balance;
-//   var response;
-//   var xhr = new XMLHttpRequest();
-//   xhr.open('GET', "http://api.reimaginebanking.com/accounts/58a8d0ee1756fc834d9053ba?key=5398eb0c1585b1634aee49389de825a1", true);
-//   xhr.send();
-//
-//   xhr.addEventListener("readystatechange", processRequest, false);
-//
-//   xhr.onreadystatechange = processRequest;
-//
-//   function processRequest(e){
-//     if (xhr.readyState == 4 && xhr.status == 200) {
-//         response = JSON.parse(xhr.responseText);
-//         balance = Number(response.balance).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-//         document.getElementById("balanceNumber").innerHTML = balance + "$";
-//
-//     }
-// document.getElementById("Greeting Message").innerHTML = balance;
-//   }
-//
-// -->
